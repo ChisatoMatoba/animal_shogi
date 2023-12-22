@@ -17,7 +17,7 @@ class GameController
 
         switch_turn
       else
-        puts '無効な入力です。もう一度入力してください。'
+        puts '無効な入力です。もう一度入力してください。(やめるときはquit)'
       end
     end
 
@@ -28,11 +28,12 @@ class GameController
 
   def display_board
     BoardView.display(@board)
-    puts "#{@current_turn == :sente ? '先手' : '後手'}: 入力してください"
+    puts "#{@current_turn == :sente ? '先手' : '後手'}: 入力してください（例: A4G,A3G）"
   end
 
   def prompt_move
     # ユーザーからの入力を受け取る
+    gets.chomp
   end
 
   def valid_move?(input)
