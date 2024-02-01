@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 駒モデル
 class Piece
   attr_reader :type, :owner

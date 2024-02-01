@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
-require_relative '../app/controllers/game_controller'
-require_relative '../app/models/board.rb'
-require_relative '../app/models/piece.rb'
-require_relative '../app/views/board_view'
+# frozen_string_literal: true
 
+require_relative '../app/controllers/game_controller'
+require_relative '../app/models/board'
+require_relative '../app/models/piece'
+require_relative '../app/views/board_view'
 
 game = GameController.new
 game.play

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
+# ボードのレイアウトを表示
 class BoardView
-  # ボードのレイアウトを表示
   def self.display(board)
     puts '   | A | B | C |'
     board.grid.each_with_index do |row, i|

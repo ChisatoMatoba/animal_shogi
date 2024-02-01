@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 盤モデル
 class Board
   attr_accessor :grid

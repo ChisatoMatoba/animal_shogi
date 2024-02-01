@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ゲームの進行管理
 class GameController
   def initialize
@@ -12,16 +14,13 @@ class GameController
       break if input == 'quit'
 
       # ルールに合った入力であれば移動する
-      if valid_move?(input)
-        make_move(input)
-        # 勝敗が決まれば終わり
-        break if game_over?
+      process_move(input)
 
-        # 先手と後手を交代
-        switch_turn
-      else
-        puts '無効な入力です。もう一度入力してください。(やめるときはquit)'
-      end
+      # 勝敗が決まれば終わり
+      break if game_over?
+
+      # 先手と後手を交代
+      switch_turn
     end
 
     puts "ゲーム終了！ #{winner}の勝利です！" if game_over?
@@ -38,6 +37,12 @@ class GameController
   # ユーザーからの入力を受け取る
   def prompt_move
     gets.chomp
+  end
+
+  def process_move(input)
+    return puts '無効な入力です。もう一度入力してください。(やめるときはquit)' unless valid_move?(input)
+
+    make_move(input)
   end
 
   # 入力された移動が有効かチェックする（全部OKのときだけtrueを返す）
