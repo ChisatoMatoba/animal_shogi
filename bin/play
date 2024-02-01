@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
-require_relative '../config/environment'
+require_relative '../app/controllers/game_controller'
+require_relative '../app/models/board.rb'
+require_relative '../app/models/piece.rb'
 require_relative '../app/views/board_view'
+
 
 game = GameController.new
 game.play
